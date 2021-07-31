@@ -15,12 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors())
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'frontend/build')))
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'frontend/build/index.html'))
-    })
-}
 
 app.get('/', (req, res) => {
     res.send('Server is running...')
